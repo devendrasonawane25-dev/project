@@ -1,4 +1,102 @@
 :root {
+/* Responsive Design */
+@media (max-width: 992px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        position: static;
+    }
+    
+    .nav-menu {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0 15px;
+    }
+    
+    .nav-item {
+        flex: 0 0 auto;
+        padding: 10px 15px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        border-radius: 6px;
+    }
+    
+    .nav-item.active {
+        border-left: none;
+        border-bottom-color: var(--accent);
+    }
+    
+    .quick-access-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .logo-section {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+    
+    .pcce-logo-container {
+        border-right: none;
+        padding-right: 0;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 20px;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .virtual-labs-logo {
+        justify-content: center;
+    }
+    
+    .quick-access-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contributor-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .quick-access-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .content {
+        padding: 20px;
+    }
+    
+    .pcce-logo-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .pcce-logo-img {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .nav-menu {
+        flex-direction: column;
+    }
+    
+    .nav-item {
+        width: 100%;
+    }
+}:root {
     --primary-brown: #8B7355;
     --light-brown: #D2B48C;
     --dark-brown: #5C4033;
