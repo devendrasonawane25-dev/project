@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Lab - Fourier Series | PCCOE</title>
+    <title>Virtual Labs - Fourier Series | PCCOE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
     <!-- Header -->
@@ -14,7 +13,10 @@
         <div class="container header-container">
             <div class="logo-section">
                 <div class="pcce-logo-container">
-                    <img src="assets/images/pccoe.png" alt="PCCOE Logo" class="pcce-logo-img" id="pcceLogo">
+                    <img src="assets/images/pccoe.png" 
+                         alt="PCCOE Logo" 
+                         class="pcce-logo-img"
+                         onerror="this.src='https://via.placeholder.com/60x60/5C4033/ffffff?text=PCOE'">
                     <div class="pcce-logo-text">
                         <div class="main">APPLIED SCIENCES & HUMANITIES</div>
                         <div class="sub">Pimpri Chinchwad College of Engineering</div>
@@ -27,14 +29,14 @@
             </div>
             <div class="user-info">
                 <i class="fas fa-user-circle"></i>
-                <span id="userGreeting">Welcome, Student</span>
+                <span>Welcome, Student</span>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Main Content Layout -->
     <div class="container main-content">
-        <!-- Sidebar -->
+        <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <h3>Experiment Navigation</h3>
             <ul class="nav-menu">
@@ -59,77 +61,24 @@
                 <li class="nav-item" data-page="contributors">
                     <i class="fas fa-users"></i> Contributors
                 </li>
+                <li class="nav-item" data-page="feedback">
+                    <i class="fas fa-comment-alt"></i> Feedback
+                </li>
             </ul>
         </aside>
 
         <!-- Content Area -->
-        <main class="content" id="mainContent">
+        <main class="content">
             <div class="content-header">
                 <div class="breadcrumb">
-                    <a href="index.html">Home</a> / <span id="currentPage">Aim</span>
+                    <a href="#">Home</a> / <span id="currentPageTitle">Aim</span>
                 </div>
                 <h2>A Virtual Lab on Fourier Series</h2>
                 <p>Engineering Mathematics Experiment</p>
             </div>
 
-            <!-- Dynamic Content Container -->
-            <div id="dynamicContent">
-                <!-- Aim Section -->
-                <div class="aim-container">
-                    <div class="aim-card">
-                        <i class="fas fa-bullseye"></i>
-                        <h3>Aim</h3>
-                        <div class="aim-content">
-                            <p>The objective of this virtual lab experiment is to:</p>
-                            <ul>
-                                <li>Understand the fundamentals of Fourier Series expansion</li>
-                                <li>Learn to determine Fourier coefficients for periodic functions</li>
-                                <li>Visualize the convergence of Fourier Series approximations</li>
-                                <li>Analyze the behavior of Fourier Series for different types of functions</li>
-                                <li>Apply Fourier Series concepts to solve engineering problems</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Quick Access Cards -->
-                    <div class="quick-access-grid">
-                        <div class="section-card" onclick="loadPage('theory')">
-                            <i class="fas fa-book"></i>
-                            <h3>Theory</h3>
-                            <p>Learn the mathematical foundations</p>
-                        </div>
-                        <div class="section-card" onclick="loadPage('pretest')">
-                            <i class="fas fa-question-circle"></i>
-                            <h3>Pretest</h3>
-                            <p>Test your prior knowledge</p>
-                        </div>
-                        <div class="section-card" onclick="loadPage('simulation')">
-                            <i class="fas fa-desktop"></i>
-                            <h3>Simulation</h3>
-                            <p>Interactive visualization</p>
-                        </div>
-                        <div class="section-card" onclick="loadPage('posttest')">
-                            <i class="fas fa-clipboard-check"></i>
-                            <h3>Posttest</h3>
-                            <p>Assess your learning</p>
-                        </div>
-                    </div>
-
-                    <!-- Feedback Section -->
-                    <div class="feedback-section">
-                        <div class="feedback-header">
-                            <i class="fas fa-star"></i>
-                            <h3>We Value Your Feedback!</h3>
-                        </div>
-                        <div class="feedback-content">
-                            <p>Help us improve our virtual lab experience. Your suggestions matter!</p>
-                            <button class="feedback-button" onclick="openFeedback()">
-                                <i class="fas fa-comment-alt"></i> Share Feedback
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Dynamic Content Area -->
+            <div id="dynamicContent"></div>
         </main>
     </div>
 
@@ -140,6 +89,40 @@
             <p>Pimpri Chinchwad College of Engineering | Pune, Maharashtra</p>
         </div>
     </footer>
+
+    <!-- Feedback Modal -->
+    <div id="feedbackModal" class="modal-overlay">
+        <div class="modal-box">
+            <span class="close-modal" onclick="closeFeedbackModal()">&times;</span>
+            <h3>Share Your Feedback</h3>
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label>Rating</label>
+                    <select required>
+                        <option value="">Select rating</option>
+                        <option value="5">Excellent</option>
+                        <option value="4">Very Good</option>
+                        <option value="3">Good</option>
+                        <option value="2">Fair</option>
+                        <option value="1">Poor</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Comments</label>
+                    <textarea required placeholder="Share your experience..."></textarea>
+                </div>
+                <button type="submit" class="feedback-button">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
